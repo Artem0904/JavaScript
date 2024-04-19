@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+        .main-grid .content{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        }
+        .img-div{
+            grid-row: span 3;
+        }
+    </style>
+</head>
+<body>
+<div>
+        <div>
+            <span>Search login</span>
+            <input type="text" class="serch">
+            <hr>
+        </div>
+        <div class="main-grid">
+            <div class="content">
+                <div class="img-div">
+                    <img id="avatar" src="https://avatars.githubusercontent.com/u/1?v=4" width="35%">
+                </div>
+                <span>
+
+                    <hr>
+                </span>
+                <span>
+
+                     <hr>
+                </span>
+            </div>
+            <div class="content">
+                <span>
+
+                    <hr>
+                </span>
+                <span>
+
+                     <hr>
+                </span>
+                <span>
+
+                    <hr>
+                </span>
+                <span>
+                    
+                    <hr>
+                </span>
+                <span>
+
+                    <hr>
+                </span>
+            </div>
+        </div>
+</div>
+
+    <script src="Promise.js"></script>
+</body>
+</html>

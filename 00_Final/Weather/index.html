@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(215, 215, 215, 255);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 10px;
+        }
+
+        .mainText {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: rgba(56, 148, 144, 255);
+        }
+
+        .smallerMainText {
+            font-size: smaller;
+        }
+
+        .title {
+            font-size: larger;
+        }
+
+        .menu {
+            display: flex;
+            background-color: rgba(64, 64, 64, 255);
+        }
+
+        .menu div {
+            display: flex;
+            height: 30px;
+            justify-content: center;
+        }
+
+        .menu div:first-child {
+            width: 25px;
+        }
+
+        .menu div:nth-child(2) {
+            width: 10%;
+            border-left: 2px solid rgba(76, 76, 76, 255);
+            border-right: 2px solid rgba(76, 76, 76, 255);
+        }
+
+        .menu div:last-child {
+            width: 20%px;
+        }
+
+        div.menu div button {
+            background: none;
+            border: 2px solid black;
+            width: 150px;
+            height: 100%;
+            color: white;
+        }
+
+        .bottom-border {
+            border-bottom: 3px solid rgba(76, 146, 148, 255);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 10px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .WeatherBlock {
+            display: flex;
+            flex-direction: column;
+            border: 1px;
+            padding: 10px;
+            background-color: rgba(246, 246, 246, 255);
+        }
+
+        .currWeatherHead {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .currentWeather {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            justify-items: center;
+        }
+
+        .currentWeather div {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            justify-content: center;
+            color: rgba(135, 128, 140, 255);
+        }
+
+        .currentTemp {
+            color: black;
+            font-size: 35px;
+        }
+
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            text-align: left;
+            overflow: hidden;
+            margin: 10px;
+        }
+        thead tr th:first-child {
+            font-weight: bold;
+            color: rgba(113, 108, 89, 255);
+            text-align: left;
+        }
+        
+        thead tr th {
+            font-weight: 550;
+            font-size: smaller;
+            padding-left: 10px;
+        }
+        
+        tbody tr td {
+            padding: 10px;
+            font-size: smaller;
+            font-weight: 550;
+            text-align: left;
+        }
+
+        tbody tr td:first-child {
+            color: rgba(135, 128, 140, 255);
+        }
+
+        tbody tr:first-child td {
+            padding: 0;
+        }
+
+        .neabyGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+            margin-top: 10px;
+        }
+
+        .neabyGrid div {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px;
+            padding: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 85%;
+            background-color: rgba(210, 210, 210, 255);
+        }
+
+
+
+        #fiveDaysBlock {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 3px;
+        }
+
+        #fiveDaysBlock button {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            background-color: rgba(246, 246, 246, 255);
+            padding: 10px;
+            padding-left: 25px;
+            text-transform: uppercase;
+        }
+
+        #fiveDaysBlock button span {
+            color: rgba(135, 128, 140, 255);
+        }
+
+        #fiveDaysBlock>button>span:first-child {
+            font-weight: bold;
+            color: rgba(38, 140, 138, 255);
+            font-size: smaller;
+        }
+
+        #fiveDaysBlock img {
+            text-align: center;
+        }
+
+        #fiveDaysBlock button span:nth-child(4) {
+            color: black;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        #fiveDaysBlock button span:last-child {
+            text-transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div><span class="mainText title">my weather</span></div>
+            <div><input type="text" placeholder="Your city"></div>
+        </div>
+        <div class="menu">
+            <div></div>
+            <div id="todayDiv" class="bottom-border"><button id="todayBtn">Today</button></div>
+            <div id="fiveDaysDiv"><button id="fiveDaysBtn">5-day forecast</button></div>
+            <div></div>
+        </div>
+    </header>
+    <main id="mainContent">
+
+        <div class="WeatherBlock">
+            <div class="currWeatherHead">
+                <span class="smallerMainText mainText"></span>
+                <span class="smallerMainText mainText"></span>
+            </div>
+            <div class="currentWeather">
+                <div>
+                    <div><img src="" alt="Weather icon"></div>
+                    <span></span>
+                </div>
+
+                <div>
+                    <span class="currentTemp"></span>
+                    <span></span>
+                </div>
+
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="WeatherBlock">
+            <div>
+                <span class="smallerMainText mainText"></span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>TODAY</th>
+                    </tr>
+                </thead>
+                <tbody id="weatherData">
+                    <tr id="icons">
+                        <td></td>
+                    </tr>
+                    <tr id="forecast">
+                        <td>Forecast</td>
+                    </tr>
+                    <tr id="temp">
+                        <td>Temp (C)</td>
+                    </tr>
+                    <tr id="realTemp">
+                        <td>RealFeel</td>
+                    </tr>
+                    <tr id="wind">
+                        <td>Wind (km/h)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <script src="weather.js"></script>
+</body>
+
+</html>
