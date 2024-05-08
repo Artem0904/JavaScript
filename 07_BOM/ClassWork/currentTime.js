@@ -1,10 +1,6 @@
-const timeSpan = document.querySelector('#time');
+let time = document.querySelector("h1");
 
-let timeNow = new Date();
-
-setInterval(() => {timeSpan.innerHTML = `${timeNow.getHours()} : ${timeNow.getMinutes()} : ${timeNow.getSeconds()}`}, 1000);
-// function aa(){
-//     var time = new Date();
-//     var str = "";
-//     str += time.getHours();
-// }
+setInterval(() => {
+  let clock = new Date();
+  time.innerText = `${clock.getHours()}:${clock.getMinutes()}:${clock.getSeconds()}`;
+}, 1000);

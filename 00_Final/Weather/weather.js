@@ -32,64 +32,13 @@ toToday(api);
 // }
 // console.log(dataApi.list[0].dt_text);
 
-
-
-
-
-
-
-document.addEventListener('click', function (event) 
-{
-    if (event.target.classList.contains('weatherCard')) 
-    {
+document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('weatherCard')) {
         console.log(`Button clicked: ${event.target.innerText}`);
-        let text = event.target.innerText;
-        dateDay = parseInt(text.match(/\d+/)[0]);
-        console.log(dateDay);
-
-        fetch(api)
-        .then(res => res.json())
-        .then(data => {
-                const time = document.getElementById('time');
-                const icons = document.getElementById('icons');
-                const forecast = document.getElementById('forecast');
-                const temp = document.getElementById('temp');
-                const realTemp = document.getElementById('realTemp');
-                const wind = document.getElementById('wind');
-
-                data.list.forEach(dataa => {
-                    let fullDate = new Date(dataa.dt_txt);
-                    if(fullDate.getDate() == dateDay)
-                    {           
-
-                        const timeCell = document.createElement('th');
-                        timeCell.textContent = `${fullDate.getHours()}:${fullDate.getMinutes()}0`;
-                        time.appendChild(timeCell);
-
-                        const iconCell = document.createElement('td');
-                        iconCell.innerHTML = `<img src="http://openweathermap.org/img/wn/${dataa.weather[0].icon}.png" alt="Weather icon">`;
-                        icons.appendChild(iconCell);
-
-                        const forecastCell = document.createElement('td');
-                        forecastCell.textContent = dataa.weather[0].description;
-                        forecast.appendChild(forecastCell);
-
-                        const tempCell = document.createElement('td');
-                        tempCell.textContent = `${Math.round(dataa.main.temp - kelvinDigree)}°`;
-                        temp.appendChild(tempCell);
-
-                        const realFeelCell = document.createElement('td');
-                        realFeelCell.textContent = `${Math.round(dataa.main.feels_like - kelvinDigree)}°`;
-                        realTemp.appendChild(realFeelCell);
-
-                        const windCell = document.createElement('td');
-                        windCell.textContent = dataa.wind.speed;
-                        wind.appendChild(windCell);
-                    }
-                });
-            });
-    } 
+    }
 });
+
+
 
 function toFiveDays(api) {
     fetch(api)
@@ -228,31 +177,28 @@ function toToday(api) {
                 </table>
             </div>
             
+            <div class="WeatherBlock">
+                <div><span class="smallerMainText mainText">Neaby places</span></div>
+                <div class="neabyGrid">
+                    <div>
+                        <span>h</span>
+                        <span>h</span>
+                    </div>
+                    <div>
+                        <span>h</span>
+                        <span>h</span>
+                    </div>
+                    <div>
+                        <span>h</span>
+                        <span>h</span>
+                    </div>
+                    <div>
+                        <span>h</span>
+                        <span>h</span>
+                    </div>
             
-            `;
-
-            // <div class="WeatherBlock">
-            //     <div><span class="smallerMainText mainText">Neaby places</span></div>
-            //     <div class="neabyGrid">
-            //         <div>
-            //             <span>h</span>
-            //             <span>h</span>
-            //         </div>
-            //         <div>
-            //             <span>h</span>
-            //             <span>h</span>
-            //         </div>
-            //         <div>
-            //             <span>h</span>
-            //             <span>h</span>
-            //         </div>
-            //         <div>
-            //             <span>h</span>
-            //             <span>h</span>
-            //         </div>
-            
-            //     </div>
-            // </div>
+                </div>
+            </div>`;
 
             const time = document.getElementById('time');
             const icons = document.getElementById('icons');
@@ -289,7 +235,7 @@ function toToday(api) {
                     windCell.textContent = dataa.wind.speed;
                     wind.appendChild(windCell);
                 }
-             });
+        });
             // todayDiv.innerHTML = `<div id="todayDiv"><button  id="todayBtn">Today</button></div>`;
             // fiveDaysBtn.innerHTML = `<div id="fiveDaysDiv" class="bottom-border"><button id="fiveDaysBtn">5-day forecast</button></div>`;
     });
